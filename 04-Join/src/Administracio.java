@@ -8,5 +8,21 @@ public class Administracio {
         }
     }
 
-    
+    public void inicia() throws InterruptedException {
+        for (Treballador t: poblacio_activa) {
+            t.start();
+        }
+
+        for (Treballador t: poblacio_activa) {
+            t.join();
+        }
+
+        for (Treballador t: poblacio_activa) {
+            System.out.println(String.format("%-10s -> edat: %d / total: %.2f", t.getName(), t.getEdat(), t.getCobrat()));
+        }
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        new Administracio().inicia();
+    }
 }
